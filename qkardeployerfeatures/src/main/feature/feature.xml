@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features name="qkardeployerfeatures-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.6.0">
+
+
+    <feature name='qkardeployer' description='QKarDeployer Features' version='${project.version}'>
+        <details>QKarDeployer Features</details>
+
+<!--        <feature>feature</feature>-->
+<!--        <feature>deployer</feature>-->
+
+        <bundle>mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.kar/${karaf.version}</bundle>
+        <bundle>mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.features/${karaf.version}</bundle>
+
+<!--        <bundle>mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.kar/${karaf.version}</bundle>-->
+<!--        <bundle>mvn:org.apache.karaf.deployer/org.apache.karaf.deployer.features/${karaf.version}</bundle>-->
+
+<!--        org.apache.karaf.deployer.features-4.2.6.jar-->
+        <bundle>mvn:net.qnenet.qkardeployerexample/qkardeployer/${qne.version}</bundle>
+    </feature>
+
+</features>

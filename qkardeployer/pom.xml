@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qkardeployerexample</artifactId>
+        <groupId>net.qnenet</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.qnenet.qkardeployerexample</groupId>
+    <artifactId>qkardeployer</artifactId>
+    <packaging>bundle</packaging>
+
+    <name>QKarDeployerExample :: QKarDeployer</name>
+
+    <description>
+        qkardeployer OSGi bundle project.
+    </description>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>${osgi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+       <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.enterprise</artifactId>
+            <version>${osgi.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.kar</groupId>
+            <artifactId>org.apache.karaf.kar.core</artifactId>
+            <version>4.2.6</version>
+        </dependency>
+        <!--        <dependency>-->
+<!--            <groupId>org.apache.karaf.features</groupId>-->
+<!--            <artifactId>org.apache.karaf.features.core</artifactId>-->
+<!--            <version>4.2.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.karaf.kar</groupId>-->
+<!--            <artifactId>org.apache.karaf.kar.core</artifactId>-->
+<!--            <version>4.2.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.karaf.deployer</groupId>-->
+<!--            <artifactId>org.apache.karaf.deployer.kar</artifactId>-->
+<!--            <version>4.2.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.felix</groupId>-->
+<!--            <artifactId>org.apache.felix.fileinstall</artifactId>-->
+<!--            <version>3.6.4</version>-->
+<!--        </dependency>-->
+
+        <!--        <dependency>-->
+<!--            <groupId>commons-io</groupId>-->
+<!--            <artifactId>commons-io</artifactId>-->
+<!--            <version>2.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.univocity</groupId>-->
+<!--            <artifactId>univocity-parsers</artifactId>-->
+<!--            <version>2.8.2</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>commons-codec</groupId>-->
+<!--            <artifactId>commons-codec</artifactId>-->
+<!--            <version>1.12</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-collections4</artifactId>-->
+<!--            <version>4.3</version>-->
+<!--        </dependency>-->
+<!--         <dependency>-->
+<!--            <groupId>org.jsoup</groupId>-->
+<!--            <artifactId>jsoup</artifactId>-->
+<!--            <version>1.11.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.bouncycastle</groupId>-->
+<!--            <artifactId>bcprov-jdk15on</artifactId>-->
+<!--            <version>1.56</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.karaf.features</groupId>-->
+<!--            <artifactId>org.apache.karaf.features.core</artifactId>-->
+<!--            <version>4.2.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.karaf.kar</groupId>-->
+<!--            <artifactId>org.apache.karaf.kar.core</artifactId>-->
+<!--            <version>4.2.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.esotericsoftware</groupId>-->
+<!--            <artifactId>kryo</artifactId>-->
+<!--            <version>5.0.0-RC4</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>io.netty</groupId>-->
+<!--            <artifactId>netty-all</artifactId>-->
+<!--            <version>4.1.36.Final</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.karaf.scheduler</groupId>-->
+<!--            <artifactId>org.apache.karaf.scheduler.core</artifactId>-->
+<!--            <version>4.2.6</version>-->
+<!--        </dependency>-->
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>${maven-bundle-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                        <Export-Package>
+                            net.qnenet.qkardeployerexample.qkardeployer.api*;version=${project.version}
+                        </Export-Package>
+                        <Private-Package>
+                            net.qnenet.qkardeployerexample.qkardeployer.provider*;version=${project.version}
+                        </Private-Package>
+
+                        <Import-Package>
+                            *
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <maxmem>256M</maxmem>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
